@@ -1,0 +1,7 @@
+# Unencrypted source is kept locally only.
+# The public repo ships the encrypted docs/index.html.
+slides.html
+images/
+build/
+*.pyc
+.DS_Store
