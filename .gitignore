@@ -5,3 +5,8 @@ images/
 build/
 *.pyc
 .DS_Store
+
+# Staticrypt state + default output dir
+.staticrypt.json
+encrypted/
+
