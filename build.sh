@@ -33,7 +33,18 @@ for png in sorted((root / "images").glob("*.png")):
 Path("${INLINED}").write_text(src)
 PY
 
-staticrypt "${INLINED}" -p "${PASSWORD}" -d "${HERE}/docs" --short >/dev/null
+staticrypt "${INLINED}" \
+  -p "${PASSWORD}" \
+  -d "${HERE}/docs" \
+  -t "${HERE}/templates/password_template.html" \
+  --template-title "The China Penalty" \
+  --template-instructions "Restricted preview — password required." \
+  --template-placeholder "Password" \
+  --template-button "Unlock" \
+  --template-error "That password didn't work. Try again." \
+  --template-color-primary "#0c7592" \
+  --template-color-secondary "#050810" \
+  --short >/dev/null
 mv "${HERE}/docs/slides_inline.html" "${HERE}/docs/index.html"
 rm -rf "${HERE}/build"
 echo "built ${HERE}/docs/index.html"
